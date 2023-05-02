@@ -11,10 +11,10 @@ window.addEventListener("load", start);
 
 let users = [];
 
-async function start(params) {
+async function start() {
   console.log("js is on");
 
-  users = await getUsers(users);
+  users = await getUsers();
 
   console.log(users);
   showUsers(users);
@@ -41,13 +41,15 @@ function showUsers(users) {
 }
 
 function showUsersAll(user) {
+  // document.querySelector("#userlist").innerHTML = "";
+  // hvis tilføjet vises kun den sidste user...
   const html = `<li>${user.id}, ${user.name}, ${user.role}, ${user.active}</li>
   `;
   document.querySelector("#userlist").insertAdjacentHTML("beforeend", html);
 }
 
 // 3. Lav en funktion der tæller hvor mange brugere
-// der har rollerne `admin`, `user` og `guest` - 
+// der har rollerne `admin`, `user` og `guest` -
 // og viser antallene på websiden.
 
 function countRoles(users) {
