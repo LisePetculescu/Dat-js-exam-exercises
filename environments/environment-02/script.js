@@ -12,7 +12,7 @@ window.addEventListener("load", start);
 const animals = [];
 
 function start(ani) {
-  const my = createAnimal("charlie", "dog", 4);
+  // const my = createAnimal("charlie", "dog", 4);
   console.log(my);
   document.querySelector("button").addEventListener("click", createNew);
 }
@@ -57,6 +57,7 @@ function addToList(animal) {
 
 function updateList() {
   const sortedAnimals = animals.sort((a, b) => a.name.localeCompare(b.name));
+  const namesChecked = animals.sort(checkName);
 
   const tableBody = document.querySelector("tbody");
   tableBody.innerHTML = "";
@@ -70,4 +71,19 @@ function updateList() {
         <td> ${animal.age}</td>`;
     tableBody.appendChild(row);
   });
+
+  namesChecked.forEach(showAnimal);
+}
+
+function checkName(a, b) {
+  return a.name.localeCompare(b.name);
+}
+
+function showAnimal(animal) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+        <td>${animal.name}</td>
+        <td>${animal.type}</td>
+        <td> ${animal.age}</td>`;
+  tableBody.appendChild(row);
 }
