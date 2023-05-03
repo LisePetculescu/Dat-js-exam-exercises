@@ -57,19 +57,29 @@ function countRoles(users) {
   let countUsers = 0;
   let countGuests = 0;
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].role === "admin") {
+  // for (let i = 0; i < users.length; i++) {
+  //   if (users[i].role === "admin") {
+  //     countAdmin++;
+  //   } else if (users[i].role === "user") {
+  //     countUsers++;
+  //   } else if (users[i].role === "guest") {
+  //     countGuests++;
+  //   }
+  // }
+
+  for (const user of users) {
+    if (user.role === "admin") {
       countAdmin++;
-    } else if (users[i].role === "user") {
+    } else if (user.role === "user") {
       countUsers++;
-    } else if (users[i].role === "guest") {
+    } else if (user.role === "guest") {
       countGuests++;
     }
   }
 
-  document.querySelector("#admin-count").innerHTML = `${countAdmin}`;
-  document.querySelector("#user-count").innerHTML = `${countUsers}`;
-  document.querySelector("#guest-count").innerHTML = `${countGuests}`;
+  document.querySelector("#admin-count").textContent = `${countAdmin}`;
+  document.querySelector("#user-count").textContent = `${countUsers}`;
+  document.querySelector("#guest-count").textContent = `${countGuests}`;
 }
 
 // function countIf(user) {
