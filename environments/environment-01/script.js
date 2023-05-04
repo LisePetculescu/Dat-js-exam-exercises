@@ -27,9 +27,7 @@ function showUsers() {
   }
 }
 
-function showUser(user) {
-  
-}
+function showUser(user) {}
 
 // 2. Lav en funktion der viser listen på websiden - vis kun aktive brugere.
 // 3. Lav en funktion der modtager `name`, `active` og `role`, opretter et `user`
