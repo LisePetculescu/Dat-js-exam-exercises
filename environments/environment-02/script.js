@@ -12,6 +12,11 @@ const animalList = [
 
 function start() {
   showAnimals();
+
+  document.querySelector("#create-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    createAnimal();
+  });
 }
 // 2. Lav en funktion der viser listen af alle animal-objekter - sorteret efter `age`.
 
@@ -32,7 +37,7 @@ function showAnimals() {
     </tbody>
     `;
 
-    document.querySelector("#list-container").insertAdjacentHTML("beforeend", html);
+    document.querySelector("#ani").insertAdjacentHTML("beforeend", html);
   }
 }
 
@@ -40,15 +45,13 @@ function showAnimals() {
 // og tilføjer det til den liste. Listen på websiden opdateres hver gang, der opretteres et nyt objekt.
 function createAnimal(name, type, age) {
   const newAnimal = {
-    name: document.querySelector("#animale-name").value,
-    type: document.querySelector("#animale-type").value,
-    role: document.querySelector("#animale-age").value,
+    name: document.querySelector("#animal-name").value,
+    type: document.querySelector("#animal-type").value,
+    age: parseInt(document.querySelector("#animal-age").value),
   };
   console.log(newAnimal);
+  document.querySelector("#ani").innerHTML = "";
 
-  document.querySelector("button").addEventListener("click", () => animalList.push(newAnimal));
-
+  animalList.push(newAnimal);
   showAnimals();
 }
-
-
