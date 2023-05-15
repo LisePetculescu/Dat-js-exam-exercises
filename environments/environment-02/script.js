@@ -38,7 +38,17 @@ function showAnimals() {
 
 // 3. Lav en funktion der ved hjælp af formularen, opretter et nyt `animal` objekt
 // og tilføjer det til den liste. Listen på websiden opdateres hver gang, der opretteres et nyt objekt.
-function createAnimal() {
+function createAnimal(name, type, age) {
+  const newAnimal = {
+    name: document.querySelector("#animale-name").value,
+    type: document.querySelector("#animale-type").value,
+    role: document.querySelector("#animale-age").value,
+  };
+  console.log(newAnimal);
 
+  document.querySelector("button").addEventListener("click", () => animalList.push(newAnimal));
+
+  showAnimals();
 }
+
 
