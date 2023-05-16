@@ -2,7 +2,8 @@
 
 window.addEventListener("load", start);
 
-// 1. Lav en liste med tre `animal` objekter. Hvert objekt har følgende properties: `name`, `type` og `age`.
+// 1. Lav en liste med tre `animal` objekter.
+// Hvert objekt har følgende properties: `name`, `type` og `age`.
 
 const animalList = [
   { name: "Monkey", type: "cat", age: 3 },
@@ -18,39 +19,57 @@ function start() {
     createAnimal();
   });
 }
-// 2. Lav en funktion der viser listen af alle animal-objekter - sorteret efter `age`.
+// 2. Lav en funktion der viser listen af alle animal-objekter
+// - sorteret efter `age`.
 
 function showAnimals() {
   animalList.sort(function (a, b) {
     return a.age - b.age;
   });
 
-  for (let i = 0; i < animalList.length; i++) {
-    const html = /*HTML*/ `
-    <tbody>
-        <tr>
-            <td>${animalList[i].name}</td>
-            <td>${animalList[i].type}</td>
-            <td>${animalList[i].age}</td>
-            <br>
-        </tr>
-    </tbody>
-    `;
+  // animalList.sort((a, b) => a.age - b.age);
 
-    document.querySelector("#ani").insertAdjacentHTML("beforeend", html);
+  // for (let i = 0; i < animalList.length; i++) {
+  //   const html = /*HTML*/ `
+  //   <tbody>
+  //       <tr>
+  //           <td>${animalList[i].name}</td>
+  //           <td>${animalList[i].type}</td>
+  //           <td>${animalList[i].age}</td>
+  //           <br>
+  //       </tr>
+  //   </tbody>
+  //   `;
+
+  // document.querySelector("#ani").insertAdjacentHTML("beforeend", html);
+  // }
+
+  for (const animal of animalList) {
+    const html = /*HTML*/ `
+     <tbody>
+         <tr>
+             <td>${animal.name}</td>
+             <td>${animal.type}</td>
+             <td>${animal.age}</td>
+             
+         </tr>
+     </tbody>
+     `;
+
+    document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
   }
 }
 
 // 3. Lav en funktion der ved hjælp af formularen, opretter et nyt `animal` objekt
 // og tilføjer det til den liste. Listen på websiden opdateres hver gang, der opretteres et nyt objekt.
-function createAnimal(name, type, age) {
+function createAnimal() {
   const newAnimal = {
     name: document.querySelector("#animal-name").value,
     type: document.querySelector("#animal-type").value,
     age: parseInt(document.querySelector("#animal-age").value),
   };
   console.log(newAnimal);
-  document.querySelector("#ani").innerHTML = "";
+  document.querySelector("tbody").innerHTML = "";
 
   animalList.push(newAnimal);
   showAnimals();
