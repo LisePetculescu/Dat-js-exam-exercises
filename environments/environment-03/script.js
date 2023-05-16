@@ -17,7 +17,6 @@ function start() {
 }
 
 function showProducts() {
- 
   for (const product of productList) {
     console.log(product);
     if (product.inStock) {
@@ -35,9 +34,9 @@ function showProduct(productList) {
 }
 
 // 3. Lav en funktion der ved hjælp af formularen, opretter et
-// nyt `product`-objekt og tilføjer det til listen. Listen på 
+// nyt `product`-objekt og tilføjer det til listen. Listen på
 // websiden opdateres hver gang, der opretteres et nyt objekt.
 
 function createProduct() {
-    console.log("hello create");
+  console.log("hello create");
 }
