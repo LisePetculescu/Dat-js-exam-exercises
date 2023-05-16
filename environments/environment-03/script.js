@@ -6,7 +6,7 @@ window.addEventListener("load", start);
 const productList = [
   { name: "trashbag", price: 5.95, inStock: true },
   { name: "towel", price: 8, inStock: false },
-  { name: "cake", price: 110, inStock: true },
+  { name: "cake", price: 110, inStock: true }
 ];
 
 // 2. Lav en funktion der viser listen af alle `product`-objekter
@@ -14,6 +14,10 @@ const productList = [
 
 function start() {
   showProducts();
+
+  document.querySelector("#create-form").addEventListener("submit", createProduct);
+
+  // createProduct();
 }
 
 function showProducts() {
@@ -25,9 +29,11 @@ function showProducts() {
   }
 }
 
-function showProduct(productList) {
+function showProduct(product) {
   const html = /*HTML*/ `
-    <p>product: ${productList.name}</p>
+  <ul>
+  <li>product: ${product.name} - price: ${product.price}kr</li>
+  </ul>
 
     `;
   document.querySelector("#list-container").insertAdjacentHTML("beforeend", html);
@@ -37,6 +43,21 @@ function showProduct(productList) {
 // nyt `product`-objekt og tilføjer det til listen. Listen på
 // websiden opdateres hver gang, der opretteres et nyt objekt.
 
-function createProduct() {
+function createProduct(event) {
   console.log("hello create");
+  event.preventDefault();
+
+  const form = event.target;
+
+  const newProduct = {
+    name: form.name.value,
+    price: Number(form.price.value),
+    inStock: form.inStock.value === "true"
+  };
+
+  document.querySelector("#list-container").innerHTML = "";
+
+  productList.push(newProduct);
+  console.log(productList);
+  showProducts();
 }
