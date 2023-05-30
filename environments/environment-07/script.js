@@ -44,7 +44,6 @@ function showStudent(student) {
             <td>${student.email}</td>
             <td>${student.age}</td>
         </tr>
-    
     `;
 
   document.querySelector("#students-table-body").insertAdjacentHTML("beforeend", html);
