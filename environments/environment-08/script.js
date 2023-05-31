@@ -1,5 +1,7 @@
 "use strict";
 
+// eksamenøvelse #6
+
 window.addEventListener("load", start);
 
 const songList = [];
