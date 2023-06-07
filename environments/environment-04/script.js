@@ -13,16 +13,19 @@ window.addEventListener("load", start);
 function start() {
     console.log(teachers);
 
-    addTeacher()
-    showTeachers();
-    
+    addTeacher("Rasmus", "race@kea.dk")
+    showTeachers(teachers);
+    // filterbyName("Mark Lee");
+
+    document.querySelector("#searchName").addEventListener("keyup", searchByName);
+    // searchByName();
 }
 
 // 2. Lav en funktion, der viser listen af alle `teacher`-objekter på websiden.
 
-function showTeachers() {
+function showTeachers(list) {
     document.querySelector("#teachers-list").innerHTML = "";
-    for (const teacher of teachers) {
+    for (const teacher of list) {
         showTeacher(teacher)
         
     }
@@ -39,11 +42,40 @@ function showTeacher(teacher) {
 
 // 3. Lav en funktion der tilføjer et nyt `teacher`-objekt til listen. Sørg for at nye `teacher`-objekter vises på websiden.
 
-function addTeacher() {
-    const newTeacher = {
-        name: "Rasmus",
-        email: "race@kea.dk"
-    }
+// function addTeacher() {
+//     const newTeacher = {
+//         name: "Rasmus",
+//         email: "race@kea.dk"
+//     }
 
-    teachers.push(newTeacher);
+//     teachers.push(newTeacher);
+// }
+
+function addTeacher(name, email) {
+  const newTeacher = {
+    name: name,
+    email: email,
+  };
+
+  teachers.push(newTeacher);
+}
+
+function filterbyName(name) {
+
+   const newList = teachers.filter(teacher => teacher.name === name);
+
+   console.log(newList);
+
+   showTeachers(newList);
+
+}
+
+function searchByName(event) {
+
+    const name = event.target.value.toLowerCase();
+
+    const searchedName = teachers.filter(teacher => teacher.name.toLowerCase().includes(name));
+
+    showTeachers(searchedName);
+
 }
