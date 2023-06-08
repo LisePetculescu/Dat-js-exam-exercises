@@ -37,9 +37,23 @@ function addStudent(event) {
 
 // 2. Lav en funktion der tjekker om en student har en korrekt email der består af mindst 4 tegn efterfulgt af @stud.kea.dk
 
-function checkStudentEmail() {
+function loopStudents() {
+    for (const student of studentList) {
+        checkStudentEmail(student)
+    }
+}
 
-    const studentEmail = 
+function checkStudentEmail(student) {
+
+    const studentEmail = student.email;
+
+    const splitEmail = studentEmail.split("@");
+    const before = splitEmail[0];
+    const after = splitEmail[1];
+
+    if (before >= 4 && after === "stud.kea.dk") {
+        studentList = studentList.filter(student => student)
+    }
 }
 
 
