@@ -11,7 +11,7 @@
 
 window.addEventListener("load", start);
 
-const studentList = [];
+let studentList = [];
 
 function start() {
     console.log("Hello");
@@ -33,7 +33,8 @@ function addStudent(event) {
     }
 
     studentList.push(newStudent);
-    loopStudents();
+    // loopStudents();
+    removeBadStudents();
     console.log("the students on the list: ", studentList);
 }
 
