@@ -33,8 +33,8 @@ function createStudent(event) {
   };
 
   studentList.push(newStudent);
-//   showStudents();
-    sortByAge();
+  //   showStudents();
+  sortByAge();
   console.log(studentList);
 }
 
@@ -42,7 +42,7 @@ function createStudent(event) {
 
 function showStudents() {
   document.querySelector("#students-table-body").innerHTML = "";
-//   sortByAge();
+  //   sortByAge();
   for (const student of studentList) {
     showStudent(student);
   }
@@ -65,6 +65,8 @@ function showStudent(student) {
 // 3. Sortér listen efter `age` så de yngste vises først.
 
 function sortByAge() {
-  studentList = studentList.sort((studentA, studentB) => studentA - studentB);
+  studentList = studentList.sort(
+    (studentA, studentB) => studentA.age - studentB.age
+  );
   showStudents();
 }
