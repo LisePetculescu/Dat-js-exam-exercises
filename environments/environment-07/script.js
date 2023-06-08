@@ -17,6 +17,7 @@ function start() {
     console.log("Hello");
 
     document.querySelector("#create-student-form").addEventListener("submit", addStudent);
+    
 }
 
 function addStudent(event) {
@@ -32,6 +33,7 @@ function addStudent(event) {
     }
 
     studentList.push(newStudent);
+    loopStudents();
     console.log("the students on the list: ", studentList);
 }
 
@@ -51,11 +53,20 @@ function checkStudentEmail(student) {
     const before = splitEmail[0];
     const after = splitEmail[1];
 
-    if (before >= 4 && after === "stud.kea.dk") {
-        studentList = studentList.filter(student => student)
+    if (before.length >= 4 && after === "stud.kea.dk") {
+        console.log("All is good");
+        return true;
+    } else {
+        console.error("Oh ohh");
+        return false
     }
 }
 
 
 
 // 3. Brug funktionen til at fjerne students uden korrekt email fra listen.
+
+function removeBadStudents() {
+
+    studentList = studentList.filter(student => student)
+}
