@@ -31,6 +31,7 @@ async function getPlaylist() {
 // tilføj en `remove`-knap til hver sang.
 
 function showPlaylist(thePlaylist) {
+  document.querySelector("#songlist").innerHTML = "";
   for (const song of thePlaylist) {
     showSongs(song);
   }
@@ -56,6 +57,6 @@ function removeChosenSong(song) {
   console.log(song.title);
   const songToRemove = song;
 
-  thePlaylist = thePlaylist.filter(song => song.title != songToRemove.title);
+  thePlaylist = thePlaylist.filter((song) => song.title != songToRemove.title);
   showPlaylist(thePlaylist);
 }
