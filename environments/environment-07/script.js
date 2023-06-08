@@ -32,7 +32,8 @@ function createStudent(event) {
 
     studentList.push(newStudent);
     console.log(studentList);
-    loopStudents();
+    // loopStudents();
+    removeThatShit();
     
 }
 
@@ -40,7 +41,8 @@ function createStudent(event) {
 
 function loopStudents() {
     for (const student of studentList) {
-        removeThatShit(student)
+        checkThatEmail(student)
+        // removeThatShit(student);
     }
 }
 
@@ -66,4 +68,6 @@ function checkThatEmail(student) {
 
 function removeThatShit() {
     studentList = studentList.filter(student => checkThatEmail(student));
+
+    console.log("########### ", studentList);
 }
