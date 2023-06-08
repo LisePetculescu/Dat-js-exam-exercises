@@ -60,6 +60,7 @@ function checkStudentEmail(student) {
         console.error("Oh ohh");
         return false
     }
+    
 }
 
 
@@ -68,5 +69,7 @@ function checkStudentEmail(student) {
 
 function removeBadStudents() {
 
-    studentList = studentList.filter(student => student)
+    studentList = studentList.filter(student => checkStudentEmail(student));
+
+    console.log(studentList);
 }
