@@ -40,15 +40,13 @@ function showPlaylist(thePlaylist) {
 function showSongs(song) {
   const html = /* html */ `
     <br>
-    <li>ARTIST: ${song.artist}, TITLE: ${song.title}, (DURATION) ${song.duration} <button id="removeSong">Delete</button></li>
+    <li>ARTIST: ${song.artist}, TITLE: ${song.title}, (DURATION) ${song.duration} <button class="removeSong">Delete</button></li>
     
     `;
 
   document.querySelector("#songlist").insertAdjacentHTML("beforeend", html);
 
-  document
-    .querySelector("#songlist li:last-child button")
-    .addEventListener("click", () => removeChosenSong(song));
+  document.querySelector("#songlist li:last-child .removeSong").addEventListener("click", () => removeChosenSong(song));
 }
 
 // 3. Få remove-knappen til at fjerne den pågældende sang fra listen, og udskriv listen igen.
@@ -57,6 +55,6 @@ function removeChosenSong(song) {
   console.log(song.title);
   const songToRemove = song;
 
-  thePlaylist = thePlaylist.filter((song) => song.title != songToRemove.title);
+  thePlaylist = thePlaylist.filter((song) => song !== songToRemove);
   showPlaylist(thePlaylist);
 }
