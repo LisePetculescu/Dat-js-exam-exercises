@@ -17,6 +17,8 @@ function start() {
     console.log("Hello");
 
     document.querySelector("#create-student-form").addEventListener("submit",createStudent); 
+
+    checkThatEmail("lipe00@stud.kea.dk")
 }
 
 function createStudent(event) {
@@ -46,18 +48,19 @@ function loopStudents() {
     }
 }
 
-function checkThatEmail(student) {
-    const theEmail = student.email;
+function checkThatEmail(email) {
+    // const theEmail = student.email;
+    
 
-    const splitEmail = theEmail.split("@");
+    const splitEmail = email.split("@");
     const before = splitEmail[0];
     const after = splitEmail[1];
 
     if (before.length >= 4 && after === "stud.kea.dk") {
-        console.log("This is a correct student email: ", theEmail);
+        console.log("This is a correct student email: ");
         return true;
     } else {
-        console.error("This is not a correct student email: ", theEmail);
+        console.error("This is not a correct student email: ");
         return false;
     }
 }
@@ -67,7 +70,7 @@ function checkThatEmail(student) {
 // 3. Brug funktionen til at fjerne students uden korrekt email fra listen.
 
 function removeThatShit() {
-    studentList = studentList.filter(student => checkThatEmail(student));
+    studentList = studentList.filter(student => checkThatEmail(student.email));
 
     console.log("########### ", studentList);
 }
