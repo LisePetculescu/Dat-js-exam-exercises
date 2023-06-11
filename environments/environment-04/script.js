@@ -34,23 +34,12 @@ function showTeachers(list) {
 function showTeacher(teacher) {
     const html = /* html */ `
     <li>${teacher.name}. email: ${teacher.email}</li>
-    
     `
-
     document.querySelector("#teachers-list").insertAdjacentHTML("beforeend", html);
 }
 
 // 3. Lav en funktion der tilføjer et nyt `teacher`-objekt til listen. Sørg for at nye `teacher`-objekter vises på websiden.
-
-// function addTeacher() {
-//     const newTeacher = {
-//         name: "Rasmus",
-//         email: "race@kea.dk"
-//     }
-
-//     teachers.push(newTeacher);
-// }
-
+//  IN START() --> addTeacher("Rasmus", "race@kea.dk")
 function addTeacher(name, email) {
   const newTeacher = {
     name: name,
@@ -70,6 +59,8 @@ function filterbyName(name) {
 
 }
 
+
+// IN START -->  document.querySelector("#searchName").addEventListener("keyup", searchByName);
 function searchByName(event) {
 
     const name = event.target.value.toLowerCase();
