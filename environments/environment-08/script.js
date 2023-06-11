@@ -37,12 +37,13 @@ function showSongs() {
 
 function showAllSongs(song) {
     const html = /*html */ `
-    <li> ARTIST: ${song.artist} TITLE: ${song.title} (DURATION) ${song.duration} Upvotes: (${song.likes}) <button class="like">Upvote</button> </li>
+    <li> ARTIST: ${song.artist} TITLE: ${song.title} (DURATION) ${song.duration} Upvotes: (${song.likes}) <button class="like">Upvote</button> <button class="dislike">downvote</button> </li>
     `;
 
     document.querySelector("#songlist").insertAdjacentHTML("beforeend", html);
 
     document.querySelector("#songlist li:last-child .like").addEventListener("click", () => moveUpvotedSong(song))
+    document.querySelector("#songlist li:last-child .dislike").addEventListener("click", () => moveUpvotedSongDown(song))
 }
 
 
@@ -51,6 +52,13 @@ function showAllSongs(song) {
 
 function moveUpvotedSong(song) {
     song.likes++;
+    console.log(song.likes);
+    songList = songList.sort((songA, songB) => songB.likes - songA.likes);
+
+    showSongs();
+}
+function moveUpvotedSongDown(song) {
+    song.likes--;
     console.log(song.likes);
     songList = songList.sort((songA, songB) => songB.likes - songA.likes);
 
