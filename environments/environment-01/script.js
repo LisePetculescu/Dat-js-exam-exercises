@@ -57,15 +57,6 @@ function countRoles(users) {
   let countUsers = 0;
   let countGuests = 0;
 
-  // for (let i = 0; i < users.length; i++) {
-  //   if (users[i].role === "admin") {
-  //     countAdmin++;
-  //   } else if (users[i].role === "user") {
-  //     countUsers++;
-  //   } else if (users[i].role === "guest") {
-  //     countGuests++;
-  //   }
-  // }
 
   for (const user of users) {
     if (user.role === "admin") {
