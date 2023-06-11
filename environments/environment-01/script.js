@@ -8,7 +8,7 @@
 
 window.addEventListener("load", start);
 
-let users;
+let users = [];
 
 async function start() {
   users = await getUsers();
